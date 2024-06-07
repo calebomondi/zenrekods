@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --white: #fff;
+    --main-font: 'Rubik';
+    --mont : 'Montserrat';
+    --nun : 'Nunito';
+    --ubu : 'Ubuntu Sans';
+    --green : rgb(5, 182, 5);
+    --seagrn : seagreen;
+    --bg : rgb(135, 245, 183);
+    --red : red;
+}
+* {
+    box-sizing: border-box;
+}
+.App {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.App, .topbar {
+    display: flex;
+}
+.left {
+    flex: 2;
+    background-color: var(--green);
+}
+.right {
+    flex: 10;
+    background-color: var(--white);
+}
+.left {
+    padding: 10px;
+}
+.topbar {
+    height: 8vh;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    color: var(--seagrn);
+    font-size: 25px;
+    font-weight: 500;
+    font-family: var(--mont);
+}
