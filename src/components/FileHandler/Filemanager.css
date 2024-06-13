@@ -1,20 +1,17 @@
-.create, .rCr, .listMy ul,.newFile, .files-ul,.files-li, .btnDelFol {
+.create, .rCr, .listMy ul,.newFile, .files-ul,.files-li, .btnDelFol, .addFil-inp,.listMy-li, .btnDelFol {
     display: flex;
 }
-.newFile, .create {
+.newFile {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
 }
 .create {
-    justify-content: space-between;
-    border: 1px solid green;
     height: 8vh;
-    background-color: lightgoldenrodyellow;
+    align-items: center;
 }
 .lCr {
-    font-size: 20px;
-    font-family: var(--ubu);
+    font-family: var(--mont);
     font-weight: 500;
 }
 .rCr, .lCr, .myFolder, .foldCont {
@@ -23,7 +20,7 @@
 .rr {
     width: 80%;
     margin: 0px auto;
-    background-color: seagreen;
+    background-color: var(--seagrn);
 }
 .rCr input {
     width: 200px;
@@ -46,7 +43,7 @@
     margin-left: 5px;
     font-size: 20px;
 }
-.rCr button:hover, .filInp:hover, .btns button:hover {
+.rCr button:hover, .filInp:hover, .viewBtn:hover {
     border: 1px solid var(--green);
     background-color: var(--green);
     cursor: pointer;
@@ -63,17 +60,21 @@
     list-style-type: none;
     margin: 5px 5px;
     padding: 5px;
-    border: 1px solid grey;
     color: gray;
     background-color: var(--white);
-    border-radius: 10px;
     font-family: var(--ubu);
+    flex-direction: column;
+    align-items: center;
+}
+.listMy-li i {
+    font-size: 30px;
 }
 .listMy-li:hover {
-    border: 1px solid var(--seagrn);
-    background-color: var(--seagrn);
-    color: var(--white);
+    color: var(--seagrn);
     cursor: pointer;
+}
+.listMy {
+    margin-top: -10px;
 }
 .listMy ul {
     flex-direction: row;
@@ -90,12 +91,16 @@
     font-family: var(--mont);
     font-weight: 500;
 }
+.addFil-inp {
+    align-items: center;
+}
 input[type='file'] {
     width: 190px;
     border: 1px solid var(--seagrn);
     font-family: var(--main-font);
     padding: 5px;
     border-radius: 10px;
+    height: 5vh;
 }
 .filInp {
     margin: 5px;
@@ -117,20 +122,31 @@ input[type='file'] {
     margin: 5px;
     color: rgb(88, 87, 87);
     font-size: 16px;
-    border-left: 1px solid #000;
     border-radius: 5px;
 }
-.btns button {
+.viewBtn {
     background-color: var(--seagrn);
     border: 1px solid var(--seagrn);
+}
+.delBtn {
+    background-color: var(--redP);
+    border: 1px solid var(--redP);
+}
+.delBtn:hover {
+    background-color: var(--red);
+    border: 1px solid var(--red);
+    cursor: pointer;
 }
 .delFol {
     background-color: var(--red);
     border: 1px solid var(--red);
+    margin-left: 30px;
+    font-size: 15px;
 }
 .delFol:hover {
     background-color: var(--white);
     color: var(--red);
+    cursor: pointer;
 }
 .btns button, .delFol {
     margin-left: 2px;
@@ -139,10 +155,13 @@ input[type='file'] {
 }
 .filename {
     width: 60%;
-    height: 3vh;
+    height: 4vh;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.filename i {
+    font-size: 20px;
 }
 .showInput {
     margin-left: 3px;
@@ -150,10 +169,10 @@ input[type='file'] {
     background-color: var(--seagrn);
     color: var(--white);
     width: 5px;
-    height: 5px;
-    visibility: visible;
+    height: 3px;
     font-size: 18px;
     font-weight: 500;
+    border-radius: 5px;
 }
 .showInput:hover {
     background-color: var(--green);
@@ -165,4 +184,15 @@ input[type='file'] {
     margin-right: 5px;
     font-size: 20px;
     font-weight: 500;
+}
+.seeDel {
+  color: red;
+}
+.seeDel:hover {
+    cursor: pointer;
+  }
+.btnDelFol {
+    width: 180px;
+    height: 4vh;
+    justify-content: space-between;
 }

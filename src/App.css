@@ -10,6 +10,7 @@
     --seagrn : seagreen;
     --bg : rgb(135, 245, 183);
     --red : red;
+    --redP : rgb(148, 47, 47);
 }
 * {
     box-sizing: border-box;
@@ -23,23 +24,16 @@
 .App, .topbar {
     display: flex;
 }
-.left {
-    flex: 2;
-    background-color: var(--green);
-}
 .right {
-    flex: 10;
     background-color: var(--white);
-}
-.left {
-    padding: 10px;
+    width: 100%;
 }
 .topbar {
     height: 8vh;
-    background-color: #fff;
+    background-color: var(--seagrn);
     justify-content: center;
     align-items: center;
-    color: var(--seagrn);
+    color: var(--white);
     font-size: 25px;
     font-weight: 500;
     font-family: var(--mont);

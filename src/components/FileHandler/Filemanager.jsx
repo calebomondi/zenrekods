@@ -11,6 +11,7 @@ function FileManager() {
   const [selectedFolder, setSelectedFolder] = useState(null);
   const [folderContents, setFolderContents] = useState([]);
   const [isVisible,setIsVisible] = useState(false);
+  const [isVisibleFol,setIsVisibleFol] = useState(false);
   const [showDelFol, setShowDelFol] = useState(false)
   const navigate = useNavigate();
 
@@ -90,6 +91,13 @@ function FileManager() {
       setIsVisible(false);
   }
 
+  const handleInputFold = () => {
+    if (isVisibleFol === false)
+      setIsVisibleFol(true);
+    else
+      setIsVisibleFol(false);
+  }
+
   const handleDelFol = () => {
     if (showDelFol === true)
         setShowDelFol(false)
@@ -99,35 +107,35 @@ function FileManager() {
 
   return (
     <>
-      <div className="left">
-        hey
-      </div>
       <div className="right">
         <div className="topbar"> ZenRekods</div>
         <div className="container">
             <div>
-              <div className='create'>
-                <div className="lCr">
-                  Create Folder
-                </div>
-                <div className="rCr">
-                  <input
-                    type="text"
-                    value={folderName}
-                    onChange={(e) => setFolderName(e.target.value)}
-                    placeholder="Folder Name"
-                  />
-                  <button onClick={handleCreateFolder}>+</button>
-                </div>
-              </div>
-
               <div className='myFolder'>
                 <div className="lMy">My Folders</div>
+                <div className='create'>
+                    <div className="lCr">
+                      Add Folder <span className='showInput' onClick={handleInputFold}>{isVisibleFol ? '-' : '+'}</span>
+                    </div>
+                    {
+                      isVisibleFol && (
+                        <div className="rCr">
+                        <input
+                          type="text"
+                          value={folderName}
+                          onChange={(e) => setFolderName(e.target.value)}
+                          placeholder="Folder Name"
+                        />
+                        <button onClick={handleCreateFolder}>+</button>
+                      </div>
+                      )
+                    }
+                </div>
                 <div className="listMy">
                   <ul>
                     {folders.map((folder) => (
                       <li key={folder.folderName} onClick={() => fetchFolderContents(folder.folderName)} className='listMy-li'>
-                        {folder.folderName} ({folder.fileCount} files)
+                        <i class="fa-regular fa-folder-closed"></i>  <span>{folder.folderName} ({folder.fileCount})</span>
                       </li>
                     ))}
                   </ul>
@@ -136,9 +144,9 @@ function FileManager() {
               <hr className="rr" />
               {selectedFolder && (
                 <div className='foldCont'>
-                  <div className="lMy">Contents of {selectedFolder}</div>
+                  <div className="lMy">Contents Of {selectedFolder}</div>
                   <div className="newFile">
-                    <div>
+                    <div className='create'>
                       <div className="addFil">Add File <span className='showInput' onClick={handleInput}>{isVisible ? '-' : '+'}</span>
                       </div>
                       {
@@ -152,12 +160,12 @@ function FileManager() {
                     </div>
                     <div className='btnDelFol'>
                       <div className="arrows" onClick={handleDelFol}>
-                      {showDelFol ? (
-                          <span dangerouslySetInnerHTML={{ __html: '&larr;' }} />
-                        ) : (
-                          <span dangerouslySetInnerHTML={{ __html: '&rarr;' }} />
-                        )
-                      }
+                        {showDelFol ? (
+                            <span className='seeDel'><i class="fa-solid fa-arrow-right"></i></span>
+                          ) : (
+                            <span className='seeDel'><i class="fa-solid fa-arrow-left"></i></span>
+                          )
+                        }
                       </div>
                       {
                         showDelFol && (
@@ -172,10 +180,10 @@ function FileManager() {
                         const fileName = filePath.split('/').pop(); // Extract file name from the path
                         return (
                           <li key={filePath} className='files-li'>
-                            <div className="filename">{fileName}</div>
+                            <div className="filename"> <i class="fa-solid fa-file-pdf"></i> {fileName}</div>
                             <div className='btns'>
-                            <button onClick={() => handleViewFile(selectedFolder, fileName)}>View</button>
-                            <button onClick={() => handleDeleteFile(filePath)}>Delete</button>
+                            <button onClick={() => handleViewFile(selectedFolder, fileName)} className='viewBtn'>View</button>
+                            <button onClick={() => handleDeleteFile(filePath)} className='delBtn'>Delete</button>
                             </div>
                           </li>
                         );
