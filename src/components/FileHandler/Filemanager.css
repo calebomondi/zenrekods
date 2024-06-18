@@ -1,198 +1,248 @@
-.create, .rCr, .listMy ul,.newFile, .files-ul,.files-li, .btnDelFol, .addFil-inp,.listMy-li, .btnDelFol {
-    display: flex;
+/* Root Variables for Theme Colors */
+:root {
+    --main-bg: #eaf7f7;
+    --seagrn: #2a9d8f;
+    --green: #264653;
+    --redP: #e76f51;
+    --red: #d62828;
+    --white: #ffffff;
+    --light-green: #72ce81;
+    --blue: #3a86ff;
 }
-.newFile {
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.create {
-    height: 8vh;
-    align-items: center;
-}
-.lCr {
-    font-family: var(--mont);
-    font-weight: 500;
-}
-.rCr, .lCr, .myFolder, .foldCont {
-    padding: 10px;
-}
-.rr {
-    width: 80%;
-    margin: 0px auto;
-    background-color: var(--seagrn);
-}
-.rCr input {
-    width: 200px;
-    height: 30px;
-    border-radius: 20px;
-    border: 1px solid var(--seagrn);
-    padding-left: 15px;
-}
-.rCr input:focus {
-    outline: none;
-    border: 1px solid goldenrod;
-}
-.rCr button, .filInp {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid var(--seagrn);
-    color: white;
-    background-color: var(--seagrn);
-    margin-left: 5px;
-    font-size: 20px;
-}
-.rCr button:hover, .filInp:hover, .viewBtn:hover {
-    border: 1px solid var(--green);
-    background-color: var(--green);
-    cursor: pointer;
-}
-.lMy {
-    font-family: var(--mont);
-    font-weight: 600;
-    margin-bottom: -10px;
-    padding: 5px;
-    font-size: 19px;
-    color: rgb(46, 46, 46);
-}
-.listMy-li {
-    list-style-type: none;
-    margin: 5px 5px;
-    padding: 5px;
-    color: gray;
-    background-color: var(--white);
-    font-family: var(--ubu);
-    flex-direction: column;
-    align-items: center;
-}
-.listMy-li i {
-    font-size: 30px;
-}
-.listMy-li:hover {
-    color: var(--seagrn);
-    cursor: pointer;
-}
-.listMy {
-    margin-top: -10px;
-}
-.listMy ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-left: 0;
-    margin-bottom: 10px;
-}
-.newFile {
-    padding: 10px;
-}
-.addFil {
-    margin: 5px 20px 5px 0px ;
-    font-family: var(--mont);
-    font-weight: 500;
-}
-.addFil-inp {
-    align-items: center;
-}
-input[type='file'] {
-    width: 190px;
-    border: 1px solid var(--seagrn);
-    font-family: var(--main-font);
-    padding: 5px;
-    border-radius: 10px;
-    height: 5vh;
-}
-.filInp {
-    margin: 5px;
-}
-.files-ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--green);
+    margin: 0;
     padding: 0;
-    margin-top: 0;
 }
-.files-li {
-    list-style-type: none;
-    font-family: var(--main-font);
-    width: 30%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    margin: 5px;
-    color: rgb(88, 87, 87);
-    font-size: 16px;
-    border-radius: 5px;
+
+/* Topbar */
+.topbar {
+    background-color: var(--light-green);
+    color: var(--white);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
 }
-.viewBtn {
-    background-color: var(--seagrn);
-    border: 1px solid var(--seagrn);
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    gap: 20px;
 }
-.delBtn {
-    background-color: var(--redP);
-    border: 1px solid var(--redP);
+
+.background-linear {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #f0f0f0, #54d291);
+    background-size: cover;
+    opacity: 0.2;
 }
-.delBtn:hover {
-    background-color: var(--red);
-    border: 1px solid var(--red);
+
+/* Folder Section */
+.myFolder {
+    background-color: var(--light-green);
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 20px;
+    width: 450px;
+}
+
+.lMy,
+.lCr {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.create,
+.newFile {
+    margin-bottom: 20px;
+}
+
+.showInput {
     cursor: pointer;
-}
-.delFol {
-    background-color: var(--red);
-    border: 1px solid var(--red);
-    margin-left: 30px;
-    font-size: 15px;
-}
-.delFol:hover {
-    background-color: var(--white);
-    color: var(--red);
-    cursor: pointer;
-}
-.btns button, .delFol {
-    margin-left: 2px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: var(--blue);
     color: var(--white);
     border-radius: 5px;
 }
+
+.showInput:hover {
+    background-color: var(--seagrn);
+}
+
+/* Folder List */
+.listMy {
+    margin-top: 10px;
+}
+
+.listMy-li {
+    list-style-type: none;
+    margin: 15px 0;
+    padding: 15px;
+    color: var(--green);
+    background-color: var(--white);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.listMy-li:hover {
+    background-color: var(--light-green);
+}
+
+/* Folder Content Section */
+.foldCont {
+    background-color: var(--light-green);
+    border-radius: 10px;
+    padding: 20px;
+    width: 700px;
+}
+
+.files-ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.files-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 5px;
+    width: 100%;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
+    
+}
+
+button,
+.filInp {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    background-color: var(--blue);
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.viewFile {
+    background-color: var(--seagrn);
+    margin-right: 20px;
+}
+
+.delFile,
+.delFol {
+    background-color: var(--redP);
+}
+
+.delFol {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.addFil,
+.btnDelFol {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Input Fields */
+input[type='text'],
+input[type='file'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--seagrn);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+input[type='text']:focus,
+input[type='file']:focus {
+    outline: none;
+    border: 1px solid var(--blue);
+}
+
 .filename {
     width: 60%;
-    height: 4vh;
+    height: 24px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.filename i {
-    font-size: 20px;
+
+/* Custom Icon Styles */
+.fa-folder,
+.fa-file {
+    margin-right: 10px;
 }
-.showInput {
-    margin-left: 3px;
-    padding: 5px;
-    background-color: var(--seagrn);
-    color: var(--white);
-    width: 5px;
-    height: 3px;
-    font-size: 18px;
-    font-weight: 500;
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    background-color: #fefefe;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.modal.success {
+    background-color: lightblue;
+    /* Background color for success messages */
+}
+
+.modal.error {
+    background-color: lightcoral;
+    /* Background color for error messages */
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
     border-radius: 5px;
+    margin: 5px;
 }
-.showInput:hover {
-    background-color: var(--green);
-    cursor: pointer;
-}
-.arrows {
-    width: 5px;
-    height: 5px;
-    margin-right: 5px;
-    font-size: 20px;
-    font-weight: 500;
-}
-.seeDel {
-  color: red;
-}
-.seeDel:hover {
-    cursor: pointer;
-  }
-.btnDelFol {
-    width: 180px;
-    height: 4vh;
-    justify-content: space-between;
+
+.button.delete {
+    background-color: blue;
 }
