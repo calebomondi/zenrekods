@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { createFolder, uploadFile, deleteFile, getFolders, getFolderContents, deleteFolder } from '../../api';
 import './Filemanager.css';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 function FileManager() {
   const [folderName, setFolderName] = useState('');
